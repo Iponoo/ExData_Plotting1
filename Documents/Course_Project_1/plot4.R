@@ -12,8 +12,8 @@ datetime <- paste(as.Date(data$Date), data$Time)
 data$Datetime <- as.POSIXct(datetime)
 
 ## Plot 4
-png(file="plot4.png",width=480,height=480)
-##par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
+png(file="plot4.png",width=480,height=480) ##Error with resize and i used this function
+par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
 with(data, {
   plot(Global_active_power~Datetime, type="l", 
        ylab="Global Active Power (kilowatts)", xlab="")
@@ -30,5 +30,5 @@ with(data, {
 })
 
 ## Saving to file
-##dev.copy(png, file="plot4.png", height=480, width=480)
+##dev.copy(png, file="plot4.png", height=480, width=480) -> I used png(), no problems with resize.
 dev.off()
